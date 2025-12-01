@@ -3,6 +3,6 @@ This repository contains a number of models, such as Negative Binomial, Standard
 Adding notebooks and lines of code incrementally for improvement.
 
 Important commands --
-git pull --rebase origin master
+git pull --rebase origin master <br>
 git push origin master
 
