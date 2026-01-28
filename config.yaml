@@ -1,0 +1,8 @@
+paths:
+  base_dir: "D:/APHRC/GoogleDrive_ii/stata_do_files/madiva/stroke_work"
+  data_dir: "{base_dir}/data"
+  out_dir: "{base_dir}/model_output"
+  fig_dir: "{base_dir}/visualization"
+  notebooks_dir: "{base_dir}/notebooks"               # <-- MUST exist
+  notebooks_executed_dir: "{base_dir}/notebooks_executed"  # <-- MUST exist
+  statsmodels: "{base_dir}/model_output/statsmodels" # Where models are saved.
