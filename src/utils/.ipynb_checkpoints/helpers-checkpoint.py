@@ -59,3 +59,55 @@ def load_paths(config_filename="config.yaml"):
     # # --------------------------------------------------
 
     return paths
+    
+# ---------------------------------------------------------------------------------------
+# ---------------------------------------------------------------------------------------
+
+def shap_dependence_safe(var_name, shap_values, X, save_dir, suffix="png"):
+    """
+    Plots a SHAP dependence plot safely, even if var_name was one-hot encoded.
+    
+    Parameters
+    ----------
+    var_name : str
+        Base variable name (e.g., "hpt_status_derived")
+    shap_values : np.array or shap.Explanation
+        SHAP values from TreeExplainer or KernelExplainer
+    X : pd.DataFrame
+        Feature matrix
+    save_dir : Path
+        Directory to save the plot
+    suffix : str
+        File format for saving ("png", "pdf", etc.)
+    """
+
+    # Check if exact column exists
+    if var_name in X.columns:
+        col_to_plot = var_name
+    else:
+        # Try to find first dummy/encoded column starting with var_name
+        matching_cols = [c for c in X.columns if c.startswith(var_name)]
+        if not matching_cols:
+            raise ValueError(f"No column found for variable '{var_name}' in X.")
+        col_to_plot = matching_cols[0]  # pick first match
+
+    import matplotlib.pyplot as plt
+    import shap
+
+    shap.dependence_plot(
+        col_to_plot,
+        shap_values,
+        X,
+        show=False
+    )
+
+    save_path = save_dir / f"shap_dependence_{col_to_plot}.{suffix}"
+    plt.savefig(save_path, dpi=300, bbox_inches="tight")
+    plt.show()
+
+    print(f"SHAP dependence plot saved to: {save_path}")
+# ---------------------------------------------------------------------------------------
+# ---------------------------------------------------------------------------------------
+# ---------------------------------------------------------------------------------------
+# ---------------------------------------------------------------------------------------
+# ---------------------------------------------------------------------------------------

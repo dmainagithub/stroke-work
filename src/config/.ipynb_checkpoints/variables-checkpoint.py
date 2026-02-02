@@ -4,10 +4,11 @@
 # Ensure all columns used in the model are numeric
 # X = df.drop(['stroke_status_derived', 'individual_id', 'obs_date'], axis=1, errors='ignore')
 COVARIATES = [
+    'hpt_status_derived',
+    'age',
     'sex_binary',
     'alcohol_use',
     'tobacco_use',
-    'hpt_status_derived',
     'diab_status_derived',
     'bmi_category_Overweight_Obese',
     'hiv_status_derived',

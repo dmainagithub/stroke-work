@@ -38,8 +38,11 @@ NOTEBOOKS = [
     "05_exploratory_and_diagnostics.ipynb",
     "06_models_logistic.ipynb",
     "07_models_poisson_nb.ipynb",
-    # "07_a_diagnostics.ipynb",
-    # "08_visualization_and_reporting.ipynb",
+    "07_diagnostics_ii.ipynb",
+    "07_sensitivity_analysis_iii.ipynb",
+    # "07_shap_explainability_iv.ipynb",
+    "08_visualization_and_reporting.ipynb",
+    "10_roc_and_calibration.ipynb",
 ]
 
 # ---------------------------------------------------------------------
